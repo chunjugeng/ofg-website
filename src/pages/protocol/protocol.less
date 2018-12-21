@@ -1,0 +1,108 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+html, body {
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: Poppins,sans-serif!important;
+    // font-family: 'Times New Roman';
+}
+.protocol ol, .protocol  ul {
+    padding-left: 1.7em;
+}
+.protocol ol li, .protocol ul li {
+    line-height: 1.5;
+    margin-bottom: 1em;
+}
+.paddingL10 {
+    padding-left: 10px;
+}
+.protocol {
+    padding: 0 0 20px;
+    margin: 0 auto;
+}
+
+.protocol > div.title {
+    margin: 2em 0 1.5em;
+    text-align: center;
+    font-weight: bold;
+}
+.protocol p, .protocol h5 {
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 1px;
+}
+
+.protocol p {
+    line-height: 1.5;
+}
+.protocol  p {
+    margin: 0 0 1.5em;
+    
+}
+.protocol > div.content .item {
+    /* margin-bottom: 1.5em; */
+    display: block;
+}
+.protocol > div.content .item > p {
+    display: inline-block;
+    width: 96%;
+}
+
+.protocol > div.content .item > i {
+    position: relative;
+    display: inline-block;
+    width: 4%;
+    vertical-align: top;
+}
+
+.protocol > div.content .item > i:before {
+    content: '';
+    display: inline-block;
+    /* position: absolute;
+    top: 50%;
+    transform: translateY(-50%); */
+    width: 4px;
+    height: 4px;
+    background-color: #666363;
+    border-radius: 50%;
+}
+
+.protocol > div.content h5 {
+    margin-bottom: 1.5em;
+    font-weight: bold;
+    
+}
+@media only screen and (min-width: 769px) {
+    .protocol  ol li, .protocol ul li {
+         font-size: 18px;
+    }
+    .protocol {
+        width: 80%;
+    }
+    .protocol > div.title, .protocol > div.content h5, p{
+        font-size: 18px;
+    }
+
+    .protocol > div.content h5 {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .protocol {
+        padding: 0 15px 15px;
+        width: 100%;
+    }
+
+    .protocol > div.title {
+        font-size: 16px;
+    }  
+    .protocol > div.content h5 {
+        font-size: 16px;
+    }
+}

@@ -17,11 +17,10 @@ function getPath(dir) {
 let config = {
     mode: process.env.NODE_ENV,
     devtool: isDev ? 'source-map' : false,
-    // entry: {
-    //     vendor: ['react', 'react-dom', 'react-router-dom'],
-    //     main: ['babel-polyfill', getPath('./src/main')]
-    // },
-    entry: getPath('./src/main'),
+    entry: {
+        vendor: ['react', 'react-dom', 'react-router-dom', 'classnames', 'styled-components'],
+        main: ['babel-polyfill', getPath('./src/main')]
+    },
     output: {
         path: dist,
         chunkFilename: '[name].[chunkhash].js',
@@ -35,11 +34,9 @@ let config = {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
-                    // presets: ['env', 'es2015', 'react'],
-                    // presets: [['es2015', { modules: false }], 'react', 'stage-0'],
-                    plugins: [                                         //
-                        ['import',{libraryName: "antd", style: 'css'}]   //需要配置的地方
-                    ]                                                    //
+                    plugins: [                                         
+                        ['import',{libraryName: "antd", style: 'css'}]   //按需加载样式
+                    ]                                                   
                 }
             },
             {
@@ -115,7 +112,8 @@ let config = {
         new CleanPlugin([dist]),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './src/index.html'
+            template: './src/index.html',
+            favicon: path.resolve('favicon.ico'),
         }),
     ],
     resolve: {
@@ -124,11 +122,11 @@ let config = {
             '~': path.resolve(__dirname, './src')
         }
     },
-    // optimization: {
-	// 	splitChunks: {
-    //         chunks: 'all'
-    //     }
-    // }
+    optimization: {
+		splitChunks: {
+            chunks: 'all',
+        }
+    }
 }
 if (isDev) {
     config.devServer = {

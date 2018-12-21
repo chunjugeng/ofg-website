@@ -1,7 +1,11 @@
-import React from "react";
-import {HashRouter, Route, Link, Switch} from "react-router-dom";
+import React from 'react';
+import {HashRouter, Route, Link, Switch} from 'react-router-dom';
 import Home from './pages/home';
 import About from './pages/about';
+
+//app protocol
+import PrivacyPolicy from './pages/protocol/PrivacyPolicy';
+import UserAgreement from './pages/protocol/UserAgreement';
 
 function Sandwiches() {
   return <h2>Sandwiches</h2>;
@@ -37,26 +41,34 @@ function Cart() {
 
 const routes = [
   {
-    path: "/",
+    path: '/',
     component: Home
   },
   {
-    path: "/home",
+    path: '/home',
     component: Home
   },
   {
-    path: "/about",
+    path: 'about',
     component: About,
     routes: [
       {
-        path: "/about/bus",
+        path: '/about/bus',
         component: Bus
       },
       {
-        path: "/about/cart",
+        path: '/about/cart',
         component: Cart
       }
     ]
+  },
+  {
+    path: '/privacy-policy',
+    component: PrivacyPolicy
+  },
+  {
+    path: '/user-agreement',
+    component: UserAgreement
   }
 ];
 
