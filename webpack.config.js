@@ -25,7 +25,7 @@ let config = {
         path: dist,
         chunkFilename: '[name].[chunkhash].js',
         filename: isDev ? '[name].js' : '[name].[chunkhash].js',
-        publicPath: '/'
+        publicPath: isDev ? '/' : `//h5-test.fastdhan.in/official-website`
     },
     module: {
         rules: [
